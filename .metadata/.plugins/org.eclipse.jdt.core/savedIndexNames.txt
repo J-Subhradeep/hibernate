@@ -1,0 +1,23 @@
+INDEX VERSION 1.134+D:\Java-training\hibernate\.metadata\.plugins\org.eclipse.jdt.core
+303802046.index
+3141924309.index
+2846837393.index
+4115813145.index
+3843431745.index
+1865797976.index
+2520239637.index
+4228266232.index
+3726475276.index
+3587904137.index
+3413725848.index
+2528167643.index
+3609328643.index
+3724712170.index
+1974175287.index
+829754875.index
+430554649.index
+6834977.index
+341291287.index
+2160719724.index
+3336128098.index
+3799164641.index

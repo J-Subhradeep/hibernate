@@ -1,0 +1,29 @@
+package com.tutorial.hibernate.app;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+public class Fetch {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		get or load data from db
+		
+		Configuration cfg  = new Configuration();
+		cfg.configure("com/tutorial/hibernate/app/hibernate.conf.xml");
+		SessionFactory factory  = cfg.buildSessionFactory();
+		
+		Session session  = factory.openSession();
+		
+//		get student 
+		Student student  = session.get(Student.class, 106);
+		System.out.println(student);
+		
+		
+		session.close();
+		factory.close();
+		
+	}
+
+}

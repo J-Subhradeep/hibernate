@@ -1,0 +1,68 @@
+package com.tutorial.hibernate.app;
+
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Date;
+
+import javax.imageio.ImageIO;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ * Hello world!
+ *
+ */
+public class App {
+    public static void main(String[] args) throws IOException {
+        System.out.println("Hello World!");
+        SessionFactory factory = new Configuration().configure("com/tutorial/hibernate/app/hibernate.conf.xml")
+                .buildSessionFactory();
+
+        // creating student
+//        Student st = new Student(105, "kamal", "benaras");
+//        System.out.println(st);
+
+
+        
+//        creating object of address class
+        Address ad = new Address();
+        ad.setStreet("Street 66");
+        ad.setCity("Rajasthan 3");
+        ad.setOpen(true);
+        ad.setAddedDate(new Date());
+        ad.setX(1211.22);
+        
+        FileInputStream fs = new FileInputStream("src/main/java/com/tutorial/hibernate/app/image.png");
+    	File file = new File("src/main/java/com/tutorial/hibernate/app/image.png");
+        byte[] data = new byte[(int) file.length()];
+        try {
+	     FileInputStream fileInputStream = new FileInputStream(file);
+	     //convert file into array of bytes
+	     fileInputStream.read(data);
+	     fileInputStream.close();
+        } catch (Exception e) {
+	     e.printStackTrace();
+        }
+        ad.setImage(data);
+		 ByteArrayInputStream inStreambj = new ByteArrayInputStream(ad.getImage());
+		 BufferedImage newImage = ImageIO.read(inStreambj);
+		 System.out.println(newImage);
+        
+        Session session = factory.openSession();
+        session.beginTransaction();
+//        session.save(st);
+        session.save(ad);
+        session.getTransaction().commit();
+        session.close();
+        
+        
+        
+        System.out.println(ad.getImage());
+        System.out.println(factory.isClosed());
+    }
+}

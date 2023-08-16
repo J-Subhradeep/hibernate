@@ -1,0 +1,5 @@
+package com.tutorial.hibernate.app;
+
+public class Address {
+
+}
