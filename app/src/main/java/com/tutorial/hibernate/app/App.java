@@ -37,7 +37,7 @@ public class App {
         ad.setAddedDate(new Date());
         ad.setX(1211.22);
         
-        FileInputStream fs = new FileInputStream("src/main/java/com/tutorial/hibernate/app/image.png");
+
     	File file = new File("src/main/java/com/tutorial/hibernate/app/image.png");
         byte[] data = new byte[(int) file.length()];
         try {
